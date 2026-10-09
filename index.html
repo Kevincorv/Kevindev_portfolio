@@ -1074,21 +1074,53 @@
     }
     .modal__iframe-placeholder svg { color: var(--color-accent); opacity: 0.7; }
     .modal__iframe-placeholder p { font-size: var(--text-sm); max-width: 30ch; }
-    .modal__iframe-placeholder .open-btn {
+    .modal__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+    .modal__btn {
       display: inline-flex;
       align-items: center;
       gap: var(--space-2);
-      padding: var(--space-2) var(--space-5);
-      background: var(--color-accent);
-      color: #000;
+      padding: var(--space-3) var(--space-5);
       font-size: var(--text-sm);
       font-weight: 700;
       border-radius: var(--radius-full);
-      transition: background var(--transition-fast), box-shadow var(--transition-fast);
+      border: 1px solid transparent;
+      transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        gap var(--transition-fast);
     }
-    .modal__iframe-placeholder .open-btn:hover {
+    .modal__btn:hover { gap: calc(var(--space-2) + 2px); }
+    .modal__btn--primary {
+      background: var(--color-accent);
+      color: #000;
+    }
+    .modal__btn--primary:hover {
       background: var(--color-accent-hover);
       box-shadow: var(--color-accent-glow);
+    }
+    .modal__btn--ghost {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border-color: var(--color-border);
+    }
+    .modal__btn--ghost:hover {
+      background: var(--color-accent-dim);
+      color: var(--color-accent);
+      border-color: var(--color-border-glow);
+    }
+    .modal__desc {
+      margin-top: var(--space-5);
+      font-size: var(--text-sm);
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      max-width: 70ch;
     }
     .modal__tags {
       display: flex;
@@ -1274,7 +1306,7 @@
             <div class="hero__card-role">// Ing. Informática</div>
             <div class="hero__card-stats">
               <div class="hero__card-stat">
-                <div class="hero__card-stat-num">5+</div>
+                <div class="hero__card-stat-num">6+</div>
                 <div class="hero__card-stat-label">proyectos</div>
               </div>
               <div class="hero__card-stat">
@@ -1367,132 +1399,132 @@
       <div class="projects-grid" id="projectsGrid">
 
         <!-- Card 1 -->
-        <article class="project-card reveal reveal-delay-1" data-title="Sistema de Gestión Académica" data-desc="Aplicación fullstack para administración de cursos, notas y usuarios en una institución educativa. Backend en PHP con MySQL, frontend dinámico con JavaScript." data-tags="PHP,MySQL,JavaScript,CSS,HTML" data-url="" tabindex="0" role="button" aria-label="Ver proyecto: Sistema de Gestión Académica">
+        <article class="project-card reveal reveal-delay-1" data-title="MUVA – Museo Viedma" data-desc="Landing inmersiva del Museo de Viedma con entorno virtual 3D interactivo. Experiencia Guaraní-Jesuítica con modelos 3D optimizados para web." data-tags="React,TypeScript,Three.js,React Three Fiber" data-url="https://museomuva.vercel.app" data-github="https://github.com/Kevincorv/muva-museo-viedma" tabindex="0" role="button" aria-label="Ver proyecto: MUVA – Museo Viedma">
           <div class="project-card__inner">
             <div class="project-card__number">01</div>
             <div class="project-card__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
             </div>
-            <h3 class="project-card__title">Sistema Gestión Académica</h3>
-            <p class="project-card__desc">Aplicación fullstack para administración de cursos, calificaciones y usuarios. Autenticación por roles, dashboard admin y reportes exportables.</p>
+            <h3 class="project-card__title">MUVA – Museo Viedma</h3>
+            <p class="project-card__desc">Landing inmersiva con entorno virtual 3D para el Museo de Viedma: recorre la experiencia Guaraní-Jesuítica navegando escenas con modelos 3D en tiempo real.</p>
             <div class="project-card__tags">
-              <span class="tag">PHP</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">CSS3</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">React Three Fiber</span>
             </div>
             <span class="project-card__link">
-              Ver detalles
+              Ver demo
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>
           </div>
         </article>
 
         <!-- Card 2 -->
-        <article class="project-card reveal reveal-delay-2" data-title="App de Tareas Kanban" data-desc="Gestor de tareas estilo Kanban con arrastrar y soltar, filtros, etiquetas y almacenamiento local. Interfaz 100% responsive con animaciones fluidas." data-tags="JavaScript,HTML,CSS,Drag&Drop" data-url="" tabindex="0" role="button" aria-label="Ver proyecto: App de Tareas Kanban">
+        <article class="project-card reveal reveal-delay-2" data-title="Tutor Inteligente" data-desc="Plataforma de aprendizaje adaptativo de programación con editor de código integrado, ejercicios guiados y analíticas de progreso." data-tags="React,TypeScript,Tailwind,Recharts" data-url="https://tutor-inteligentee.vercel.app" data-github="https://github.com/Kevincorv/tutor-inteligente" tabindex="0" role="button" aria-label="Ver proyecto: Tutor Inteligente">
           <div class="project-card__inner">
             <div class="project-card__number">02</div>
             <div class="project-card__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="12" rx="1"/><rect x="17" y="3" width="4" height="16" rx="1"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
-            <h3 class="project-card__title">App de Tareas Kanban</h3>
-            <p class="project-card__desc">Gestor de proyectos tipo Kanban con drag &amp; drop, etiquetas de prioridad, filtros dinámicos y persistencia de datos local.</p>
+            <h3 class="project-card__title">Tutor Inteligente</h3>
+            <p class="project-card__desc">Plataforma de aprendizaje adaptativo de programación con editor de código integrado, ejercicios guiados y seguimiento de progreso con analíticas.</p>
             <div class="project-card__tags">
-              <span class="tag">Vanilla JS</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">LocalStorage</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Recharts</span>
             </div>
             <span class="project-card__link">
-              Ver detalles
+              Ver demo
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>
           </div>
         </article>
 
         <!-- Card 3 -->
-        <article class="project-card reveal reveal-delay-3" data-title="API REST — E-Commerce" data-desc="Backend REST API completo para un sistema de comercio electrónico. Endpoints para productos, usuarios, pedidos y pagos. Documentación Swagger incluida." data-tags="PHP,MySQL,REST,API,JWT" data-url="" tabindex="0" role="button" aria-label="Ver proyecto: API REST E-Commerce">
+        <article class="project-card reveal reveal-delay-3" data-title="AutoShopping" data-desc="Tienda online de accesorios automotrices con catálogo de productos, carrito de compras, panel de administración y gestión de pedidos." data-tags="Next.js,Prisma,Tailwind,TypeScript" data-url="https://autoshopping.vercel.app" data-github="https://github.com/Kevincorv/autoshopping" tabindex="0" role="button" aria-label="Ver proyecto: AutoShopping">
           <div class="project-card__inner">
             <div class="project-card__number">03</div>
             <div class="project-card__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             </div>
-            <h3 class="project-card__title">API REST — E-Commerce</h3>
-            <p class="project-card__desc">API RESTful completa para e-commerce: productos, inventario, carrito, órdenes y autenticación JWT. Documentada con Swagger.</p>
+            <h3 class="project-card__title">AutoShopping</h3>
+            <p class="project-card__desc">Tienda online de accesorios automotrices: catálogo con carrito de compras, panel de administración, gestión de pedidos y pagos.</p>
             <div class="project-card__tags">
-              <span class="tag">PHP</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">REST</span>
-              <span class="tag">JWT</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Prisma</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">TypeScript</span>
             </div>
             <span class="project-card__link">
-              Ver detalles
+              Ver demo
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>
           </div>
         </article>
 
         <!-- Card 4 -->
-        <article class="project-card reveal reveal-delay-4" data-title="Dashboard Analytics" data-desc="Panel de análisis con visualización de datos en tiempo real, gráficos interactivos y filtros dinámicos. Diseño oscuro con glassmorphism." data-tags="JavaScript,Chart.js,CSS,HTML" data-url="" tabindex="0" role="button" aria-label="Ver proyecto: Dashboard Analytics">
+        <article class="project-card reveal reveal-delay-4" data-title="#YoCreo – Gestión Electoral" data-desc="Sistema de gestión electoral: importa votaciones desde planillas Excel, calcula resultados por circuito y los visualiza en paneles interactivos." data-tags="React,TypeScript,TanStack Query,XLSX" data-url="https://yocreo-nuevo.vercel.app" data-github="https://github.com/Kevincorv/yocreo-nuevo" tabindex="0" role="button" aria-label="Ver proyecto: #YoCreo – Gestión Electoral">
           <div class="project-card__inner">
             <div class="project-card__number">04</div>
             <div class="project-card__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             </div>
-            <h3 class="project-card__title">Dashboard Analytics</h3>
-            <p class="project-card__desc">Panel de analíticas con métricas en tiempo real, gráficas interactivas con Chart.js, filtros por fecha y exportación de reportes.</p>
+            <h3 class="project-card__title">#YoCreo – Gestión Electoral</h3>
+            <p class="project-card__desc">Sistema de gestión electoral que importa votaciones desde planillas Excel, calcula resultados por circuito y los presenta en paneles interactivos.</p>
             <div class="project-card__tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Chart.js</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">REST API</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">TanStack Query</span>
+              <span class="tag">XLSX</span>
             </div>
             <span class="project-card__link">
-              Ver detalles
+              Ver demo
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>
           </div>
         </article>
 
         <!-- Card 5 -->
-        <article class="project-card reveal reveal-delay-5" data-title="Sistema Inventario" data-desc="Aplicación de escritorio y web para control de inventario, alertas de stock mínimo, historial de movimientos y reportes PDF automáticos." data-tags="PHP,MySQL,JavaScript,PDF" data-url="" tabindex="0" role="button" aria-label="Ver proyecto: Sistema Inventario">
+        <article class="project-card reveal reveal-delay-5" data-title="KRC Technologies" data-desc="Landing page corporativa de KRC Technologies con servicios, proyectos y formulario de contacto funcional con envío de emails." data-tags="Next.js,React,TypeScript,Resend" data-url="https://www.krctechnologiess.com" data-github="https://github.com/Kevincorv/landigkrc-react" tabindex="0" role="button" aria-label="Ver proyecto: KRC Technologies">
           <div class="project-card__inner">
             <div class="project-card__number">05</div>
             <div class="project-card__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-            <h3 class="project-card__title">Sistema de Inventario</h3>
-            <p class="project-card__desc">Control de stock, alertas automáticas por umbral mínimo, historial de movimientos y generación de reportes PDF automáticos.</p>
+            <h3 class="project-card__title">KRC Technologies</h3>
+            <p class="project-card__desc">Landing page corporativa para KRC Technologies con secciones de servicios, proyectos y contacto funcional con envío de emails.</p>
             <div class="project-card__tags">
-              <span class="tag">PHP</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">FPDF</span>
-              <span class="tag">Bootstrap</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Resend</span>
             </div>
             <span class="project-card__link">
-              Ver detalles
+              Ver demo
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>
           </div>
         </article>
 
         <!-- Card 6 -->
-        <article class="project-card reveal reveal-delay-1" data-title="Portfolio Personal v1" data-desc="Primera versión del portfolio personal, desarrollado con HTML, CSS y JavaScript puro. Totalmente responsive con animaciones CSS y scroll parallax." data-tags="HTML,CSS,JavaScript,Responsive" data-url="" tabindex="0" role="button" aria-label="Ver proyecto: Portfolio Personal v1">
+        <article class="project-card reveal reveal-delay-1" data-title="Sistema de Gestión de Stock" data-desc="Gestión de stock con tablero de métricas, gráficas de movimientos y exportación de reportes a PDF y Excel." data-tags="React,Chart.js,jsPDF,XLSX" data-url="https://sistemadestock.vercel.app" data-github="https://github.com/Kevincorv/frontend" tabindex="0" role="button" aria-label="Ver proyecto: Sistema de Gestión de Stock">
           <div class="project-card__inner">
             <div class="project-card__number">06</div>
             <div class="project-card__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             </div>
-            <h3 class="project-card__title">Portfolio Personal v1</h3>
-            <p class="project-card__desc">Primera versión del sitio personal. HTML/CSS/JS puro, sin frameworks. Diseño responsive con animaciones de scroll y parallax suave.</p>
+            <h3 class="project-card__title">Sistema de Gestión de Stock</h3>
+            <p class="project-card__desc">Gestión de stock con tablero de métricas, gráficas de movimientos de mercadería y exportación de reportes a PDF y Excel.</p>
             <div class="project-card__tags">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">JS</span>
-              <span class="tag">Responsive</span>
+              <span class="tag">React</span>
+              <span class="tag">Chart.js</span>
+              <span class="tag">jsPDF</span>
+              <span class="tag">XLSX</span>
             </div>
             <span class="project-card__link">
-              Ver detalles
+              Ver demo
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>
           </div>
@@ -1788,23 +1820,48 @@
     const desc  = card.dataset.desc;
     const tags  = card.dataset.tags ? card.dataset.tags.split(',') : [];
     const url   = card.dataset.url;
+    const github = card.dataset.github;
+    const hasUrl = url && url.trim() !== '';
 
     modalTitle.textContent = title;
-    modalSubtitle.textContent = 'Proyecto personal';
 
-    /* Build iframe or placeholder */
-    if (url && url.trim() !== '') {
+    let host = 'Proyecto personal';
+    if (hasUrl) {
+      try { host = new URL(url).hostname; } catch (e) { host = 'Proyecto personal'; }
+    }
+    modalSubtitle.textContent = host;
+
+    /* Action buttons: live demo (Vercel) + source code */
+    const actions = `
+      <div class="modal__actions">
+        ${hasUrl ? `
+        <a class="modal__btn modal__btn--primary" href="${url}" target="_blank" rel="noopener">
+          Ver en Vercel
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>` : ''}
+        ${github && github.trim() !== '' ? `
+        <a class="modal__btn modal__btn--ghost" href="${github}" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.99 5.24.99 11.5c0 4.86 3.15 8.98 7.52 10.44.55.1.75-.24.75-.53v-1.86c-3.06.67-3.7-1.48-3.7-1.48-.5-1.28-1.23-1.62-1.23-1.62-1-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.44-.28-5.01-1.22-5.01-5.44 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.4.11-2.92 0 0 .93-.3 3.05 1.13a10.5 10.5 0 0 1 5.56 0c2.12-1.43 3.05-1.13 3.05-1.13.6 1.52.22 2.64.11 2.92.7.77 1.13 1.75 1.13 2.95 0 4.23-2.58 5.16-5.03 5.43.4.34.75 1.02.75 2.06v3.05c0 .29.2.64.76.53 4.36-1.46 7.51-5.58 7.51-10.44C23.01 5.24 18.27.5 12 .5z"/></svg>
+          Ver código
+        </a>` : ''}
+      </div>`;
+
+    /* Build iframe or placeholder + actions + description */
+    if (hasUrl) {
       modalContent.innerHTML = `
         <div class="modal__iframe-wrap">
-          <iframe src="${url}" title="${title}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
-        </div>`;
+          <iframe src="${url}" title="${title}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+        </div>
+        ${actions}
+        <p class="modal__desc">${desc || ''}</p>`;
     } else {
       modalContent.innerHTML = `
         <div class="modal__iframe-placeholder">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           <p>${desc}</p>
           <span style="font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-mono)">Demo próximamente — proyecto en desarrollo</span>
-        </div>`;
+        </div>
+        ${actions}`;
     }
 
     /* Tags */
@@ -1822,6 +1879,7 @@
     backdrop.classList.remove('open');
     backdrop.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    modalContent.innerHTML = '';
   }
 
   document.querySelectorAll('.project-card').forEach(card => {
